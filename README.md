@@ -8,6 +8,17 @@
 
 // TODO opensea tx analysis
 
+## api
+
+// http:localhost:3000/api/ping
+// http://localhost:3000/api/get_tx/0x049149be4927a543a993fb3c5eacc455b15ccc798159de98203fbb8ac819a74a
+// http://localhost:3000/api/get_tx_receipt/0x049149be4927a543a993fb3c5eacc455b15ccc798159de98203fbb8ac819a74a
+// http://localhost:3000/api/get_block/16075677
+// http://localhost:3000/api/get_block_time_stamp/16075677
+// http://localhost:3000/api/other_tx_info
+// http://localhost:3000/api/try_alchemy
+// loading...
+
 ## reference:
 
 https://docs.alchemy.com/reference/ethereum-api-quickstart

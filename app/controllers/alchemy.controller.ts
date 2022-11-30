@@ -12,6 +12,7 @@ const alchemy = new Alchemy(settings)
 @JsonController()
 @Service()
 export class AlchemyController {
+  // http://localhost:3000/api/try_alchemy
   @Get('/try_alchemy')
   async try_alchemy() {
     const latestBlock = await alchemy.core.getBlockNumber()
