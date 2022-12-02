@@ -8,6 +8,6 @@ export class PingController {
   // http:localhost:3000/api/ping
   @Get('/ping')
   async ping() {
-    return []
+    return { message: 'pong' }
   }
 }

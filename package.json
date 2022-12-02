@@ -3,9 +3,11 @@
   "version": "0.0.1",
   "license": "MIT",
   "main": "app.ts",
+  "type": "module",
   "scripts": {
     "dev": "export NODE_ENV=development; ts-node-dev -r tsconfig-paths/register app.ts",
     "dev:db": "docker compose -f docker-compose.yml up -d",
+    "unidate": "node app/controllers/unidate.js",
     "prettier": "prettier --write '**/*.{js,ts}'",
     "test": "jest --config .jest.config.js --no-cache --detectOpenHandles",
     "prod:build": "node ./build.js",
@@ -49,6 +51,7 @@
     "reflect-metadata": "^0.1.13",
     "routing-controllers": "^0.9.0",
     "typedi": "^0.10.0",
+    "unidata.js": "^0.7.9",
     "web3": "^1.8.1"
   },
   "author": "jokereven <zjing125.cn@gmail.com>"
