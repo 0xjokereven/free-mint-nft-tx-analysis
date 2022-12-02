@@ -6,5 +6,3 @@ export * from './ping.controller'
 export * from './sessions.controller'
 // tx
 export * from './transaction.controller'
-// unidate
-export * from './unidate.controller'
