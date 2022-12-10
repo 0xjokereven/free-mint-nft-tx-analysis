@@ -1,14 +1,14 @@
 import server from 'server'
 import request from 'supertest'
 
-describe('routers: session', () => {
+describe('routers: ping', () => {
   let app
   beforeAll(async () => {
     app = await server
   })
 
   it('should be return 200 status code', async () => {
-    const res = await request(app).get('/api/sessions')
+    const res = await request(app).get('/api/ping')
     expect(res.status).toEqual(200)
   })
 

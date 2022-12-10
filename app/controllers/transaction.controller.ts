@@ -8,6 +8,8 @@ import Web3 from 'web3'
 const ALCHEMY_PRODUCT_ID = process.env.ALCHEMY_PRODUCT_ID
 const INFURA_PRODUCT_ID = process.env.INFURA_PRODUCT_ID
 
+console.log(ALCHEMY_PRODUCT_ID)
+
 const web3 = new Web3(
   Web3.givenProvider || `https://eth-mainnet.g.alchemy.com/v2/${ALCHEMY_PRODUCT_ID}`,
 )

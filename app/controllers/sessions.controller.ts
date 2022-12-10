@@ -14,11 +14,13 @@ import { Service } from 'typedi'
 export class SessionsController {
   constructor(private sessionsService: SessionsService) {}
 
+  // http://localhost:3000/api/sessions
   @Get('/sessions')
   async query() {
     return []
   }
 
+  // http://localhost:3000/api/sessions
   @Post('/sessions')
   async create(
     @BodyParam('username') name: string,

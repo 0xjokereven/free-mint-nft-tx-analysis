@@ -12,7 +12,9 @@
 
 server listen in localhost:3000
 
-/api/ping
+/api/ping > http://localhost:3000/api/ping
+
+/api/sessions > http://localhost:3000/api/sessions
 
 /api/get_tx/0x049149be4927a543a993fb3c5eacc455b15ccc798159de98203fbb8ac819a74a
 
@@ -24,7 +26,7 @@ server listen in localhost:3000
 
 /api/other_tx_info
 
-/api/try_alchemy
+/api/try_alchemy_get_block_number
 
 ## reference:
 
