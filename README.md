@@ -2,9 +2,9 @@
 
 - [x] one tx analysis on the eth
 
-// TODO freemint nft tx analysis
+- [x] TODO nft transfer
 
-// TODO nft transfer
+// TODO freemint nft tx analysis
 
 // TODO opensea tx analysis
 
