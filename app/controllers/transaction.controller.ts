@@ -78,6 +78,12 @@ export class TxController {
     }
   }
 
+  @Get('/encode_event')
+  async encode_event() {
+    var res = web3.eth.abi.encodeEventSignature('Withdrawal(uint amount, uint when)')
+    return { res: res }
+  }
+
   // http://localhost:3000/api/other_tx_info
   @Get('/other_tx_info')
   async getOtherTxInfo() {
