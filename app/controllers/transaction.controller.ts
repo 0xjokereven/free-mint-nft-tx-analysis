@@ -10,8 +10,12 @@ const INFURA_PRODUCT_ID = process.env.INFURA_PRODUCT_ID
 
 console.log(ALCHEMY_PRODUCT_ID)
 
+// const web3 = new Web3(
+//   Web3.givenProvider || `https://eth-mainnet.g.alchemy.com/v2/${ALCHEMY_PRODUCT_ID}`,
+// )
+
 const web3 = new Web3(
-  Web3.givenProvider || `https://eth-mainnet.g.alchemy.com/v2/${ALCHEMY_PRODUCT_ID}`,
+  Web3.givenProvider || `https://mainnet.infura.io/v3/bb7f1a94a0174cac8c6d966fd925dbaa`,
 )
 
 function GetBackupWeb3() {
@@ -40,6 +44,17 @@ export class TxController {
   @Get('/get_tx/:hash')
   async getTxByHash(@Param('hash') hash: string) {
     var result = await GetBackupWeb3().eth.getTransaction(hash)
+    var stringify = JSON.stringify(result)
+    var transaction_details = JSON.parse(stringify)
+    return {
+      transaction_details: transaction_details,
+    }
+  }
+
+  // http://localhost:3000/api/get_tx_count/0xce4BA677aEBcBB178376228801Ac62Bc9Bea6c21
+  @Get('/get_tx_count/:hash')
+  async getTxCountByHash(@Param('hash') hash: string) {
+    var result = await GetBackupWeb3().eth.getTransactionCount(hash)
     var stringify = JSON.stringify(result)
     var transaction_details = JSON.parse(stringify)
     return {
@@ -82,6 +97,52 @@ export class TxController {
   async encode_event() {
     var res = web3.eth.abi.encodeEventSignature('Withdrawal(uint amount, uint when)')
     return { res: res }
+  }
+
+  // http://localhost:3000/api/transfer
+  @Get('/transfer')
+  async transfer() {
+    var Transfer = web3.eth.abi.encodeEventSignature('Transfer(address,address,uint256)')
+    // 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef
+
+    var Birth = web3.eth.abi.encodeEventSignature(
+      'Birth(address,uint256,uint256,uint256,uint256)',
+    )
+    // 0x0a5311bd2a6608f08a180df2ee7c5946819a649b204b554bb8e39825b2c50ad5
+
+    var Approval = web3.eth.abi.encodeEventSignature('Approval(address,address,uint256)')
+    // 0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925
+
+    var Pregnant = web3.eth.abi.encodeEventSignature(
+      'Pregnant(address,uint256,uint256,uint256)',
+    )
+    // 0x241ea03ca20251805084d27d4440371c34a0b85ff108f6bb5611248f73818b80
+
+    var TransferSingle = web3.eth.abi.encodeEventSignature(
+      'TransferSingle(address,address,address,uint256,uint256)',
+    )
+    // 0xc3d58168c5ae7397731d063d5bbf3d657854427343f4c083240f7aacaa2d0f62
+
+    const filter = {
+      fromBlock: 16000000,
+      toBlock: 16000100,
+      address: '0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB',
+      topic: ['0x4a39dc06d4c0dbc64b70af90fd698a233a518aa5d07e595d983b8c0526c8f7fb'],
+    }
+
+    web3.eth.getPastLogs(filter).then(function (logs) {
+      logs.forEach(function (log) {
+        console.log(log)
+      })
+    })
+
+    return {
+      Transfer: Transfer,
+      Birth: Birth,
+      Approval: Approval,
+      Pregnant: Pregnant,
+      TransferSingle: TransferSingle,
+    }
   }
 
   // http://localhost:3000/api/other_tx_info
