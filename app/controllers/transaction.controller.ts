@@ -8,8 +8,6 @@ import Web3 from 'web3'
 const ALCHEMY_PRODUCT_ID = process.env.ALCHEMY_PRODUCT_ID
 const INFURA_PRODUCT_ID = process.env.INFURA_PRODUCT_ID
 
-console.log(ALCHEMY_PRODUCT_ID)
-
 // const web3 = new Web3(
 //   Web3.givenProvider || `https://eth-mainnet.g.alchemy.com/v2/${ALCHEMY_PRODUCT_ID}`,
 // )
@@ -93,6 +91,7 @@ export class TxController {
     }
   }
 
+  // http://localhost:3000/api/encode_event
   @Get('/encode_event')
   async encode_event() {
     var res = web3.eth.abi.encodeEventSignature('Withdrawal(uint amount, uint when)')
@@ -123,11 +122,16 @@ export class TxController {
     )
     // 0xc3d58168c5ae7397731d063d5bbf3d657854427343f4c083240f7aacaa2d0f62
 
+    // var dp = web3.eth.abi.decodeParameters(
+    //   ['address'],
+    //   '0x2Cf9DA532E8c27d464096a39C0F14E3804EA91d4',
+    // )
+
     const filter = {
       fromBlock: 16000000,
       toBlock: 16000100,
-      address: '0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB',
-      topic: ['0x4a39dc06d4c0dbc64b70af90fd698a233a518aa5d07e595d983b8c0526c8f7fb'],
+      address: '0x06012c8cf97BEaD5deAe237070F9587f8E7A266d',
+      topic: ['0xc3d58168c5ae7397731d063d5bbf3d657854427343f4c083240f7aacaa2d0f62'],
     }
 
     web3.eth.getPastLogs(filter).then(function (logs) {

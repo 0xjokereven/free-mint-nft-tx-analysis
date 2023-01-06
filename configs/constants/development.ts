@@ -1,7 +1,7 @@
 const development = {
   ENV_LABEL: 'DEVELOPMENT',
 
-  PORT: 3000,
+  PORT: 3001,
 }
 
 export default development
