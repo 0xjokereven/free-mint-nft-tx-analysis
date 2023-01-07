@@ -18,7 +18,7 @@ const web3 = new Web3(
 
 function GetBackupWeb3() {
   return new Web3(
-    Web3.givenProvider || `wss://eth-mainnet.g.alchemy.com/v2/${ALCHEMY_PRODUCT_ID}`,
+    Web3.givenProvider || `https://mainnet.infura.io/v3/${ALCHEMY_PRODUCT_ID}`,
   )
 }
 

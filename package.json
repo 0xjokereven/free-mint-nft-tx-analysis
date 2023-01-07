@@ -5,7 +5,7 @@
   "main": "app.ts",
   "type": "module",
   "scripts": {
-    "dev": "export NODE_ENV=development; ts-node-dev -r tsconfig-paths/register app.ts",
+    "dev": "cross-env NODE_ENV=development; ts-node-dev -r tsconfig-paths/register app.ts",
     "dev:db": "docker compose -f docker-compose.yml up -d",
     "unidate": "node app/controllers/unidate.js",
     "prettier": "prettier --write '**/*.{js,ts}'",
@@ -40,6 +40,7 @@
     "alchemy-sdk": "^2.2.5",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
+    "cross-env": "^7.0.3",
     "dotenv": "^12.0.3",
     "egg": "^3.5.0",
     "koa": "^2.13.4",
