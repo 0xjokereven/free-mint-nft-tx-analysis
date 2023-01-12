@@ -28,7 +28,7 @@ for (let i of arr) {
     }
 
     console.log(data, ADDRESS)
-    if (data > 1980) {
+    if (data > 2222) {
       fs.writeFile('config.txt', content, option, error => {
         if (error) {
           console.log('fs.writeFile failed err: ', error)

@@ -8,10 +8,10 @@ const web3 = new Web3(
 console.log('[start get address]')
 
 const filter = {
-  fromBlock: 16230843,
-  toBlock: 16230880,
-  address: '0xaf60f9140dfdf85f8db527b4db609ce1986bf735',
-  topic: ['0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef'],
+  fromBlock: 16363522,
+  toBlock: 16363571,
+  address: '0x5078981549A1CC18673eb76fb47468f546aAdc51',
+  topics: ['0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef'],
 }
 
 web3.eth.getPastLogs(filter).then(function (logs) {
@@ -20,7 +20,8 @@ web3.eth.getPastLogs(filter).then(function (logs) {
     var tx_hash = log.transactionHash
     tx_arr.push(tx_hash)
   })
-  for (var i = 1661; i < tx_arr.length; i++) {
+  console.log(tx_arr.length)
+  for (var i = 0; i < tx_arr.length; i++) {
     var res = web3.eth.getTransaction(tx_arr[i])
     res.then(res => {
       var content = `${res.from}\n`

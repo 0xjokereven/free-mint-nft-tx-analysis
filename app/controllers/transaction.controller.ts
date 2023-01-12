@@ -131,7 +131,7 @@ export class TxController {
       fromBlock: 16000000,
       toBlock: 16000100,
       address: '0x06012c8cf97BEaD5deAe237070F9587f8E7A266d',
-      topic: ['0xc3d58168c5ae7397731d063d5bbf3d657854427343f4c083240f7aacaa2d0f62'],
+      topic: ['0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef'],
     }
 
     web3.eth.getPastLogs(filter).then(function (logs) {
