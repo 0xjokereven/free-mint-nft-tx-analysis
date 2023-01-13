@@ -16,7 +16,7 @@ arr.push(result)
 
 for (let i of arr) {
   var address = Object.keys(i)
-  for (let index = 0; index < 2; index++) {
+  for (let index = 0; index < 4; index++) {
     sleep(1000)
     var ADDRESS = address[index]
     sdk
@@ -33,7 +33,9 @@ for (let i of arr) {
         var buys = data['buy_num']
         var percent = (sales + sends + burns) / (mints + received + buys)
         console.log(
-          'activity = ' +
+          'mints = ' +
+            mints +
+            ' activity = ' +
             activity +
             ' percent = ' +
             percent +
@@ -41,18 +43,17 @@ for (let i of arr) {
             address[index],
         )
         // 通过判断写入文件
-        if (activity > 2222) {
-          if (percent > 0.693) {
-            var content = `${ADDRESS}\n`
-            const option = {
-              flag: 'a',
-            }
-            fs.writeFile('config.txt', content, option, error => {
-              if (error) {
-                console.log('fs.writeFile failed err: ', error)
-              }
-            })
+        // 0.896
+        if (percent >= 1) {
+          var content = `${address[index]}\n`
+          const option = {
+            flag: 'a',
           }
+          fs.writeFile('config.txt', content, option, error => {
+            if (error) {
+              console.log('fs.writeFile failed err: ', error)
+            }
+          })
         }
       })
       .catch(err => console.error(err))
