@@ -4,14 +4,11 @@ import { Alchemy, Network } from 'alchemy-sdk'
 import fs from 'fs'
 
 const config = {
-  apiKey: 'KTHY6dSRDoYxkAMQo0EfNEfRBCRvMO1o',
+  apiKey: 'pp6EhXuTrejJ3aIRaf5S9C4uHZ-5WDbO',
   network: Network.ETH_MAINNET,
 }
 
 const alchemy = new Alchemy(config)
-
-// mint count
-var mint_count = 0
 
 // 读取json文件
 let rawdata = fs.readFileSync('config.json')
@@ -38,6 +35,10 @@ for (let i of arr) {
     })
     // how much have to mint
     // Print contract address and tokenId for each NFT (ERC721 or ERC1155):
+
+    // mint count
+    var mint_count = 0
+
     for (const events of mint.transfers) {
       if (events.erc1155Metadata == null) {
         mint_count++
@@ -53,8 +54,8 @@ for (let i of arr) {
     const option = {
       flag: 'a',
     }
-    console.log(edd, ADDRESS)
-    if (edd > 0.2) {
+    console.log(ef, mint_count, edd, ADDRESS)
+    if (edd > 0.896) {
       fs.writeFile('config.txt', content, option, error => {
         if (error) {
           console.log('fs.writeFile failed err: ', error)

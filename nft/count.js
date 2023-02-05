@@ -4,7 +4,7 @@ import { Alchemy, Network } from 'alchemy-sdk'
 import fs from 'fs'
 
 const config = {
-  apiKey: 'KTHY6dSRDoYxkAMQo0EfNEfRBCRvMO1o',
+  apiKey: 'pp6EhXuTrejJ3aIRaf5S9C4uHZ-5WDbO',
   network: Network.ETH_MAINNET,
 }
 
@@ -28,8 +28,14 @@ for (let i of arr) {
     }
 
     console.log(data, ADDRESS)
-    if (data > 2222) {
+    if (data > 1000) {
       fs.writeFile('config.txt', content, option, error => {
+        if (error) {
+          console.log('fs.writeFile failed err: ', error)
+        }
+      })
+    } else {
+      fs.writeFile('result.txt', content, option, error => {
         if (error) {
           console.log('fs.writeFile failed err: ', error)
         }

@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "license": "MIT",
   "main": "app.ts",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "dev": "cross-env NODE_ENV=development; ts-node-dev -r tsconfig-paths/register app.ts",
     "dev:db": "docker compose -f docker-compose.yml up -d",

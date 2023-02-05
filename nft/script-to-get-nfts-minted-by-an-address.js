@@ -6,9 +6,9 @@ const config = {
   network: Network.ETH_MAINNET,
 }
 const alchemy = new Alchemy(config)
-
+var mint_count = 0
 // Address we want get NFT mints from
-const toAddress = '0xce4BA677aEBcBB178376228801Ac62Bc9Bea6c21'
+const toAddress = '0xf3380CfbacAF3A2C0C69A7B2d5aa2013A33094cF'
 
 const res = await alchemy.core.getAssetTransfers({
   fromBlock: '0x0',
@@ -21,20 +21,12 @@ const res = await alchemy.core.getAssetTransfers({
 // Print contract address and tokenId for each NFT (ERC721 or ERC1155):
 for (const events of res.transfers) {
   if (events.erc1155Metadata == null) {
-    console.log(
-      'ERC-721 Token Minted: ID- ',
-      events.tokenId,
-      ' Contract- ',
-      events.rawContract.address,
-    )
+    mint_count++
   } else {
     for (const erc1155 of events.erc1155Metadata) {
-      console.log(
-        'ERC-1155 Token Minted: ID- ',
-        erc1155.tokenId,
-        ' Contract- ',
-        events.rawContract.address,
-      )
+      mint_count++
     }
   }
 }
+
+console.log(mint_count)

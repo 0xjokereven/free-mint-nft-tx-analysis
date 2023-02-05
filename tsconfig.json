@@ -12,28 +12,15 @@
     "preserveConstEnums": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "typeRoots": [
-      "node_modules/@types",
-      "typings"
-    ],
+    "typeRoots": ["node_modules/@types", "typings"],
     "baseUrl": ".",
     "paths": {
       "configs/*": ["./configs/*"],
       "app": ["app"]
-    },
+    }
   },
   "compileOnSave": false,
-  "include": [
-    "app/**/*",
-    "configs/**/*",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "files": [
-    "app.ts",
-  ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+  "include": ["app/**/*", "configs/**/*", "**/*.ts", "**/*.tsx"],
+  "files": ["app.ts"],
+  "exclude": ["node_modules", "dist"]
 }

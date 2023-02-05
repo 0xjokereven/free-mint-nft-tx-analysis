@@ -44,7 +44,7 @@ for (let i of arr) {
         )
         // 通过判断写入文件
         // 0.896
-        if (percent >= 1) {
+        if (percent >= 0.896) {
           var content = `${address[index]}\n`
           const option = {
             flag: 'a',
