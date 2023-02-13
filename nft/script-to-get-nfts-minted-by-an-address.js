@@ -8,7 +8,7 @@ const config = {
 const alchemy = new Alchemy(config)
 var mint_count = 0
 // Address we want get NFT mints from
-const toAddress = '0xf3380CfbacAF3A2C0C69A7B2d5aa2013A33094cF'
+const toAddress = '0x2c3cbbd20bed6bd6868ebdfe54ff6493fdbd6d45'
 
 const res = await alchemy.core.getAssetTransfers({
   fromBlock: '0x0',
